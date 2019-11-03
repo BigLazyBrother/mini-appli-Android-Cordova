@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Liste des repas</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <style>
+  </style>
+</head>
+<body> 
+   <!-- Le mot "Erreur dans l'app" n'apparaitra pas pendant le chargement des classes JS si elles sont chargées dans le fichier header -->
+  Erreur dans l'app!
+
+  <!-- Une balise de type texte n'est pas interprétée, mais comme on n'a une id, on peut en faire ce qu'on veut -->  
+  <script type="plain/text" id="page-liste-repas">
+    <div class="page-liste-repas">
+      <h1>Liste des repas</h1>
+      <h2>à manger une fois en France</h2>
+      <a href="#ajouter-repas" class="bouton">Ajouter un repas</a>
+      <ul id="liste-repas"></ul>
+    </div>
+  </script>  
+  
+  <script type="plain/text" id="page-repas">
+    <h1 id="repas-nom"></h1>
+    <h2 id="repas-region"></h2>
+    <p id="repas-description"></p>
+    <!-- <a href="#modifier-repas">Modifier le repas</a> -->
+    <div id="modifier-repas"></div> <!-- Cette ligne a été ajoutée pour permettre de placer le bouton de modification -->
+    <a href="#" class="bouton">Revenir &agrave; la liste</a>
+  </script>
+
+  <!-- https://docs.google.com/document/d/1ldOrGUSJ7JZiAgW_d3vCps2_f7dVgb15xFd0cg80y8s/edit -->
+  <script type="plain/text" id="page-ajouter-repas">
+    <h1>Ajouter un repas</h1>
+      <article id='main' class="current">
+        <section>
+          <form id="formulaire-ajouter">
+            <fieldset>
+            <legend>Identification du repas</legend>
+            <div>
+              <label for="repas-nom">Nom</label>
+              <input type="text" name="nom" id="repas-nom"/>
+            </div>
+            <div>
+              <label for="repas-region">R&eacute;gion</label>
+              <input type="text" name="region" id="repas-region"/>
+            </div>
+            </fieldset>
+            <fieldset>
+            <legend>D&eacute;tails sur le repas</legend>
+            <div>
+              <label for="repas-description">Description</label>
+              <textarea name="description" id="repas-description"></textarea>
+            </div>
+            </fieldset>
+            <input type="submit" id="enregistrer" name="enregistrer" value="Enregistrer"/>
+          </form>
+          <a href="#" class="bouton">Annuler et revenir &agrave; la liste</a>
+        </section>
+      </article>
+    </script>
+
+    <script type="plain/text" id="page-modifier-repas">
+    <h1>Modifier un repas</h1>
+      <article id='main' class="current">
+        <section>
+          <form id="formulaire-modifier">
+            <fieldset>
+            <legend>Identification du repas</legend>
+            <div>
+              <label for="repas-nom">Nom</label>
+              <input type="text" name="nom" id="repas-nom"/>
+            </div>
+            <div>
+              <label for="repas-region">R&eacute;gion</label>
+              <input type="text" name="region" id="repas-region"/>
+            </div>
+            </fieldset>
+            <fieldset>
+            <legend>D&eacute;tails sur le repas</legend>
+            <div>
+              <label for="repas-description">Description</label>
+              <textarea name="description" id="repas-description"></textarea>
+            </div>
+            </fieldset>
+            <input type="submit" id="enregistrer" name="enregistrer" value="Enregistrer"/>
+          </form>
+          <a href="#" class="bouton">Annuler et revenir &agrave; la liste</a>
+        </section>
+      </article>
+    </script>
+
+
+  <!-- Si on fonctionne sur ce procédé, on détruit le contenu de la page index.html en le remplaçant par l'une des balises script.
+  Pour pallier ce problème qui nous empêche d'appeler une autre balise script qui aurait été écrasé, il faut faire une copie
+  de tout ce qui se trouve dans cette page. -->
+
+  <!-- ATTENTION ! L'ordre est important -->
+
+  <script src="modele/Repas.js"></script>
+  <script src="DAO/DAOrepas.js"></script>
+  <script src="vue/VueAjouterRepas.js"></script>
+  <script src="vue/VueModifierRepas.js"></script>
+  <script src="vue/VueRepas.js"></script>
+  <script src="vue/VueListeRepas.js"></script>
+  <script src="controleur/application.js"></script>
+</body>
+</html> 
